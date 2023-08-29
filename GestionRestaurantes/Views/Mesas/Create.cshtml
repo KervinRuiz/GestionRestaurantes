@@ -1,0 +1,61 @@
+﻿@model GestionRestaurantes.Models.Mesa
+
+@{
+    ViewData["Title"] = "Crear Restaurante";
+}
+
+<h1>Create</h1>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class=" card-header bg-dark">
+                <h4 class="text-warning"><strong>Crear Mesa</strong></h4>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Numero_Mesa" class="control-label"></label>
+                    <input asp-for="Numero_Mesa" class="form-control" placeholder="Ingrese el nombre" />
+                    <span asp-validation-for="Numero_Mesa" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Tipo_Mesa" class="control-label"></label>
+                    <select asp-for="Tipo_Mesa" class="form-control " asp-items="ViewBag.Tipo_Mesa"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Estado_Reservado" class="control-label"></label>
+                    <select asp-for="Estado_Reservado" class="form-control" asp-items="ViewBag.Estado_Reservado">
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RestauranteId" class="control-label"></label>
+                    <select  asp-for="RestauranteId" class="form-control">
+                        @foreach (var item in @ViewBag.Restaurantes)
+                        {
+                            <option value="@item.Id">
+                                @item.Nombre_Restaurante
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" id="enviar" class="btn btn-secondary d-block mx-auto"><i class="bg-info bi-person-fill"></i> Crear </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

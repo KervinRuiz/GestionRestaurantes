@@ -1,0 +1,67 @@
+﻿<!--Para poder acceder a la entidad de contacto-->
+@model GestionRestaurantes.Models.Mesa
+@{
+    ViewData["Title"] = "Editar mesa";
+}
+
+<h1 class="text-center"> Editar mesa</h1>
+
+
+<!--Carta con los contactos-->
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <!--header de la carta-->
+            <div class="card-header bg-dark">
+                <h3 class="text-white"><strong>Editar mesa</strong></h3>
+                <script>
+
+                </script>
+
+            </div>
+            <!--Body de la carta-->
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!--Label y input de nombre-->
+                    <div class="form-group">
+                        <label asp-for="Numero_Mesa" class="control-label"></label>
+                        <input asp-for="Numero_Mesa" class="form-control" placeholder="Ingresar el nombre" />
+                        <span asp-validation-for="Numero_Mesa" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Tipo_Mesa" class="control-label"></label>
+                        <select asp-for="Tipo_Mesa" class="form-control " asp-items="ViewBag.Tipo_Mesa"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Estado_Reservado" class="control-label"></label>
+                        <select asp-for="Estado_Reservado" class="form-control" asp-items="ViewBag.Estado_Reservado">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RestauranteId" class="control-label"></label>
+                        <select asp-for="RestauranteId" class="form-control">
+                            @foreach (var item in @ViewBag.Restaurantes)
+                            {
+                                <option value="@item.Id">
+                                    @item.Nombre_Restaurante
+                                </option>
+                            }
+                        </select>
+                    </div>
+
+                    <!--Btn enviar datos-->
+                    <div class="form-floating mt-3">
+                        <button type="submit" class="btn btn-primary d-block mx-auto"><i class="bi bi-pencil-fill">Editar Restaurante</i></button>
+                    </div>
+                </form>
+                <a asp-controller="Restaurante" asp-action="Index">Regresar</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,43 @@
+﻿<!--Para poder acceder a la entidad de contacto-->
+@model GestionRestaurantes.Models.Pedido
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Restaurantes</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre_Cliente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre_Cliente)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Orden)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Orden)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha_Pedido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fecha_Pedido)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id"><i class="bi bi-pencil-fill mx-2 mb-1"></i>Editar</a>
+    <a class="btn btn-primary" asp-action="Index"><i class="bi bi-arrow-left-square mx-2 mt-1"></i>Volver</a>
+</div>

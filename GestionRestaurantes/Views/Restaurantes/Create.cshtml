@@ -1,0 +1,55 @@
+﻿@model GestionRestaurantes.Models.Restaurante
+
+@{
+    ViewData["Title"] = "Crear Restaurante";
+}
+
+<h1>Create</h1>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class=" card-header bg-dark">
+                <h4 class="text-warning"><strong>Crear Restaurante</strong></h4>
+            </div>
+
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Nombre_Restaurante" class="control-label"></label>
+                    <input asp-for="Nombre_Restaurante" class="form-control" placeholder="Ingrese el nombre" />
+                    <span asp-validation-for="Nombre_Restaurante" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <input asp-for="Telefono" class="form-control" placeholder="Ingrese el telefono" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+
+                <div>
+                    <label asp-for="Correo" class="control-label"></label>
+                    <input asp-for="Correo" class="form-control" placeholder="Ingrese el correo" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Fecha_Apertura" class="control-label"></label>
+                    <input type="date" asp-for="Fecha_Apertura" class="form-control" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" id="enviar" class="btn btn-secondary d-block mx-auto"><i class="bg-info bi-person-fill"></i> Crear </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

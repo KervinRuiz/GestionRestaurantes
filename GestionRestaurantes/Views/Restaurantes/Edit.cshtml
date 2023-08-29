@@ -1,0 +1,59 @@
+﻿<!--Para poder acceder a la entidad de contacto-->
+@model GestionRestaurantes.Models.Restaurante
+@{
+    ViewData["Title"] = "Editar restaurante";
+}
+
+<h1 class="text-center"> Editar restaurante</h1>
+
+
+<!--Carta con los contactos-->
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <!--header de la carta-->
+            <div class="card-header bg-dark">
+                <h3 class="text-white"><strong>Editar Restaurante</strong></h3>
+                <script>
+
+                </script>
+
+            </div>
+            <!--Body de la carta-->
+            <div class="card-body">
+                <form asp-action="Edit" method="post">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!--Label y input de nombre-->
+                    <div class="form-group">
+                        <label asp-for="Nombre_Restaurante" class="control-label"></label>
+                        <input asp-for="Nombre_Restaurante" class="form-control" placeholder="Ingresar el nombre" />
+                        <span asp-validation-for="Nombre_Restaurante" class="text-danger"></span>
+                    </div>
+                    <!--Lbael y input de Telefono-->
+                    <div class="form-group">
+                        <label asp-for="Telefono" class="control-label"></label>
+                        <input asp-for="Telefono" class="form-control" placeholder="Ingresar el Telefono" />
+                        <span asp-validation-for="Telefono" class="text-danger"></span>
+                    </div>
+                    <!--Lbael y input de Celular-->
+                    <div class="form-group">
+                        <label asp-for="Correo" class="control-label"></label>
+                        <input asp-for="Correo" class="form-control" placeholder="Ingresar el Celular" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+
+                    <!--Btn enviar datos-->
+                    <div class="form-floating mt-3">
+                        <button type="submit" class="btn btn-primary d-block mx-auto"><i class="bi bi-pencil-fill">Editar Restaurante</i></button>
+                    </div>
+                </form>
+                <a asp-controller="Restaurante" asp-action="Index">Regresar</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

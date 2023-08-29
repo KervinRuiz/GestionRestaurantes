@@ -1,0 +1,45 @@
+﻿<!--Para poder acceder a la entidad de contacto-->
+@model GestionRestaurantes.Models.Pedido
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1 class="text-center">Eliminar pedido</h1>
+
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+
+            <div class="card-header bg-dark">
+
+                <h3 class="text-white">
+                    <strong>Detalles pedido</strong>
+                </h3>
+            </div>
+
+            <div class="card-body">
+                <ul class="list-group-item">
+                    <li class="list-group-item"><strong>Nombre: </strong>@Html.DisplayFor(m => m.Nombre_Cliente)</li>
+                    <li class="list-group-item"><strong>Telefono: </strong>@Html.DisplayFor(m => m.Orden)</li>
+                    <li class="list-group-item"><strong>Celular: </strong>@Html.DisplayFor(m => m.Fecha_Pedido)</li>
+                    <li class="list-group-item"><strong>Fecha registro </strong>@Html.DisplayFor(m => m.MesaId)</li>
+                </ul>
+
+
+                <form asp-action="Delete" method="post">
+                    <!--Btn enviar datos-->
+                    <div class="form-floating mt-3">
+                        <button type="submit" class="btn btn-danger d-block mx-auto"><i class="bi bi-pencil-fill">Eliminar Mesa</i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
